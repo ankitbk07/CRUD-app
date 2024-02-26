@@ -1,0 +1,15 @@
+<h1>Create Task</h1>
+<%= button_to "New Task", new_task_path, method: :get %>
+<h1> Tasks are: </h1>
+
+<ol>
+    <% @tasks.each do |task|  %>
+        <li style= "margin:10px;">
+        <div style = "display:flex; gap:10px;"> 
+        <%= task.title %> 
+        <%= button_to "Edit Task", edit_task_path(task), method: :get %>
+        <%= button_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %> 
+        </div>
+        </li>
+    <% end %>     
+</ol>
